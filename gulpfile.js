@@ -3,7 +3,7 @@ var babel = require('gulp-babel');
 var sass = require('gulp-sass');
 
 gulp.task('sass', function () {
-  gulp.src('scss/styles.scss')
+  return gulp.src('scss/styles.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('public/css'));
 });
@@ -17,7 +17,10 @@ gulp.task('babel', function() {
 });
 
 gulp.task('watch', function() {
+  gulp.watch('scss/styles.scss', ['sass']);
   gulp.watch('src/**/*.js', ['babel']);
 });
 
-gulp.task('dev', ['sass', 'babel']);
+
+
+gulp.task('dev', ['sass', 'babel', 'watch']);
