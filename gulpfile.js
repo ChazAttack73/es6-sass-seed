@@ -8,8 +8,8 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('default', function() {
-  return gulp.src('src/test.js')
+gulp.task('babel', function() {
+  return gulp.src('src/**/*.js')
     .pipe(babel({
       presets: ['es2015']
     }))
